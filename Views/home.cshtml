@@ -2,6 +2,7 @@
 
 @using Clean.Core.Models.ViewModels
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using umb_htmx.Controllers
 
 @{
     Layout = "master.cshtml";
@@ -13,6 +14,23 @@
 {
     <article>
         <div class="container">
+
+            <div class="row clearfix">
+
+                <button hx-get="/umbraco/surface/homesfsurface/updatesection" hx-swap="outerHTML">
+                    Click Me surface get
+                </button>
+                <form hx-post="/umbraco/surface/homesfsurface/updatesection2" hx-swap="outerHTML">
+                    <button>
+                        Click Me surface post
+                    </button>
+                    @Html.AntiForgeryToken()
+                </form>
+                <button hx-get="htmx-views/home/updatesection" hx-swap="outerHTML">
+                    Click Me API
+                </button>
+            </div>
+
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     @Html.GetBlockListHtml(Model.ContentRows)

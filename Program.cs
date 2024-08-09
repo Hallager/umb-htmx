@@ -1,3 +1,5 @@
+using umb_htmx.Controllers;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.CreateUmbracoBuilder()
@@ -6,6 +8,8 @@ builder.CreateUmbracoBuilder()
     .AddDeliveryApi()
     .AddComposers()
     .Build();
+
+//builder.Services.AddControllersWithViews().AddApplicationPart(typeof(HomeController).Assembly);
 
 WebApplication app = builder.Build();
 
